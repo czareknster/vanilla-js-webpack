@@ -1,4 +1,5 @@
 import * as R from 'ramda';
+
 import arrayContainsNumbers from './arrays.js';
 
 const findPairsEqual = (data, sum) =>
@@ -13,7 +14,9 @@ const findPairsEqual = (data, sum) =>
       }),
       R.reject(R.isNil),
       R.reduce((acc, item) => {
-        if (!R.find(i => R.equals(i, item))(acc)) acc.push(item);
+        if (!R.find(i => R.equals(i, item))(acc)) {
+          acc.push(item);
+        }
 
         return acc;
       }, [])

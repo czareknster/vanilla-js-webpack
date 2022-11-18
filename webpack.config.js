@@ -1,8 +1,9 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const globals = require('./src/app/templates/globals.js');
+
+const path = require('path');
 
 module.exports = {
   mode: 'development',
@@ -20,20 +21,7 @@ module.exports = {
     }),
     new ESLintPlugin()
   ],
-  module: {
-    // rules: [
-    //   {
-    //     test: /\.js$/,
-    //     exclude: /node_modules/,
-    //     use: [
-    //       {
-    //         loader: 'babel-loader'
-    //       },
-    //       'eslint-loader'
-    //     ]
-    //   }
-    // ]
-  },
+  module: {},
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),

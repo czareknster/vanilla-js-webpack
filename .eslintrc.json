@@ -1,0 +1,93 @@
+{
+  "parser": "@babel/eslint-parser",
+  "ignorePatterns": ["!**/*"],
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "babelrc": false,
+      "configFile": false,
+      "presets": ["@babel/preset-env"]
+    }
+  },
+  "extends": ["prettier"],
+  "rules": {
+    "prettier/prettier": "warn",
+    "import/no-deprecated": "warn",
+    "import/order": [
+      "warn",
+      {
+        "newlines-between": "always-and-inside-groups",
+        "groups": ["external", "internal", ["parent", "sibling"]],
+        "pathGroups": [
+          {
+            "pattern": "@{nap,gdl,ods,dia}/**",
+            "group": "internal"
+          }
+        ]
+      }
+    ],
+    "arrow-body-style": "error",
+    "brace-style": ["error", "1tbs"],
+    "comma-dangle": [
+      "error",
+      {
+        "imports": "never",
+        "objects": "never",
+        "arrays": "never",
+        "functions": "never"
+      }
+    ],
+    "complexity": [
+      "error",
+      {
+        "max": 20
+      }
+    ],
+    "constructor-super": "error",
+    "curly": "error",
+    "eol-last": "error",
+    "eqeqeq": ["error", "smart"],
+    "guard-for-in": "error",
+    "id-blacklist": "off",
+    "id-match": "off",
+    "no-bitwise": "error",
+    "no-caller": "error",
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error", "info"]
+      }
+    ],
+    "no-debugger": "error",
+    "no-empty": "off",
+    "no-eval": "error",
+    "no-extra-boolean-cast": "off",
+    "no-fallthrough": "error",
+    "no-new-wrappers": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          "rxjs/Rx",
+          {
+            "name": "@ngneat/spectator",
+            "message": "Use @ngneat/spectator/jest instead."
+          }
+        ]
+      }
+    ],
+    "no-shadow": "off",
+    "no-throw-literal": "error",
+    "no-undef-init": "error",
+    "no-underscore-dangle": "off",
+    "no-var": "error",
+    "prefer-const": "error",
+    "radix": "error"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "plugins": ["import", "prettier"]
+}
